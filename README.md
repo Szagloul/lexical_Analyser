@@ -42,7 +42,7 @@ A top-down recursive descent parser and lexical analyzer built with Python.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE] file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
