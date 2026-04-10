@@ -1,0 +1,66 @@
+Grammer rules:
+
+Program = "program" Identifier ":" Body "." .
+
+Body = [ Declarations ] Statements .
+
+Declarations = Declaration { Declaration } .
+
+Declaration = ( "bool | "int" ) Identifier { "," Identifier } ";" .
+
+Statements = Statement { ";" Statement } .
+
+Statement = AssignmentStatement
+            | ConditionalStatement
+            | IterativeStatement
+            | PrintStatement .
+
+AssignmentStatement = Identifier ":=" Expression .
+
+ConditionalStatement = "if" Expression
+                       "then" Body
+                       [ "else" Body ]
+                       "end" .
+
+IterativeStatement = "while" Expression "do" Body "end" .
+
+PrintStatement = "print" Expression .
+
+Expression = SimpleExpression [ RelationalOperator SimpleExpression ] .
+
+RelationalOperator = "<" | "=<" | "=" | "!=" | ">=" | ">" .
+
+SimpleExpression = Term { AdditiveOperator Term } .
+
+AdditiveOperator = "+" | "-" | "or" .
+
+Term = Factor { MultiplicativeOperator Factor } .
+
+MultiplicativeOperator = "*" | "/" | "mod" | "and" .
+
+Factor = [ UnaryOperator ] (Literal | Identifier | "(" Expression ")" ) .
+
+UnaryOperator = "-" | "not" .
+
+Literal = BooleanLiteral | IntegerLiteral .
+
+BooleanLiteral = "false" | "true" .
+
+IntegerLiteral = Digit { Digit } .
+
+Identifier = Letter { Letter | Digit | "_" }.
+
+Digit = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" .
+
+Letter = "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k"
+| "l" | "m" | "n" | "o" | "p" | "q" | "u" | "r" | "s" | "t" | "u"
+| "v" | "w" | "x" | "y" | "z"
+| "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K"
+| "L" | "M" | "N" | "O" | "P" | "Q" | "U" | "R" | "S" | "T" | "U"
+| "V" | "W" | "X" | "Y" | "Z" .
+
+Lexical Rules:
+1. Whtie space is allowed anywhere within terminal symbols
+2. Comments start with // and terminate at the end of the line
+3.The scope of a variable is from its declaration to the end of the nearest
+enclosing body
