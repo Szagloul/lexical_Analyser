@@ -1,19 +1,49 @@
-**Name:** Saif Zagloul
-**Language:** Python 3.14.2
-**Interpreter:** CPython 3.14.2
-**IDE:** VS Code
+# Mini grammer Lexer & Parser
 
-## Files
-- `lexer.py` — Lexical analyzer that tokenizes the input source file
-- `parser.py` — Syntax analyzer that parses the token stream against the grammar
+A top-down recursive descent parser and lexical analyzer built with Python.
 
-## How to Execute
-1. Place your input file (e.g., `text.txt`) in the same directory as the scripts.
-2. Run the program using the command: `py parser.py`
-3. When prompted, enter the filename: `text.txt`
+## Features
 
-## End-User Documentation
-The program reads a source file and determines if it is syntactically valid according to the grammar.
-- If the input is syntactically correct, the program prints `true` and terminates.
-- If a syntax error is encountered, the program prints an error message with the line and column of the error and terminates.
-- Whitespace and comments `//` are ignored.
+- **Maximum Munch Lexing**:
+  - The scanner uses a greedy approach to correctly distinguish between similar operators like `:`, `:=`, `=`, and `=<`.
+- **Recursive Descent Parsing**:
+  - A predictive parser that validates code structure through a clean hierarchy of methods (Program → Body → Statements → Expressions).
+- **Comprehensive Operator Support**:
+  - Full implementation of mathematical operators (`+`, `-`, `*`, `/`, `mod`) and logical operators (`and`, `or`, `not`).
+- **Dynamic Error Reporting**:
+  - Precise error tracking that provides the exact line and column number when a syntax or lexical error is encountered.
+- **Robust Comment Handling**:
+  - Built-in logic to identify and skip single-line comments (`//`), allowing for documented source code.
+- **Stateful Tokenization**:
+  - Objects that preserve the token's exact position, type, and value for downstream debugging or interpretation.
+
+## Usage
+
+1. Ensure you have **Python 3.14.2** installed.
+2. Prepare a text file (e.g., `source.txt`) containing your code.
+3. Run the script via your terminal:
+   ```bash
+   python main.py
+
+## Technologies Used
+
+- **Python 3.14.2**
+- **Standard I/O & File Handling** (Standard Library)
+- **Object-Oriented Design**
+
+## Skills Demonstrated
+
+- **Lexical Analysis**: Crafting a state-based scanner to convert raw character streams into a stream of meaningful tokens.
+- **Syntactic Analysis**: Implementing EBNF (Extended Backus-Naur Form) grammar rules via recursive function calls.
+- **Error Handling: Implementing**: "fail-fast" logic that halts execution with descriptive feedback upon encountering invalid syntax.
+- **Lookahead Logic**: Using a one-token lookahead (csym) to determine the correct execution path without backtracking.
+- **Formal Grammar Implementation**: Translating high-level language specifications into programmatic validation logic.
+
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE] file for details.
+
+---
+
+*Created by Saif Zagloul*
